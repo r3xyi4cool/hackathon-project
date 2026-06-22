@@ -1,0 +1,21 @@
+<div class="product-card">
+    <div class="product-image">
+        <img src="{{ url_for('static', filename='images/' + product.image) }}" alt="{{ product.name }}">
+        <span class="eco-badge">Eco {{ product.eco_rating }}</span>
+    </div>
+    <div class="product-info">
+        <h3>{{ product.name }}</h3>
+        <div class="product-ratings">
+            <span class="rating">&#9733; {{ product.rating }}</span>
+            <span class="eco-rating">&#127793; {{ product.eco_rating }}</span>
+        </div>
+        <p class="product-price">&#8377;{{ "%.0f"|format(product.price) }}</p>
+        {% if current_user.is_authenticated %}
+        <form action="{{ url_for('main.add_to_cart', product_id=product.id) }}" method="POST">
+            <button type="submit" class="btn btn-primary btn-sm btn-block">Add to Cart</button>
+        </form>
+        {% else %}
+        <a href="{{ url_for('auth.login') }}" class="btn btn-primary btn-sm btn-block">Login to Buy</a>
+        {% endif %}
+    </div>
+</div>

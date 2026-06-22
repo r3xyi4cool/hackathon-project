@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+
+{% block title %}Home | Godrej Smart Marketplace{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="hero-container">
+        <!-- Left: Hero photo with floating badges -->
+        <div class="hero-visual animate-fade-in">
+            <div class="hero-visual-card">
+                <img
+                    src="{{ url_for('static', filename='images/hero.svg') }}"
+                    alt="Godrej Chilling paste — smart sustainable oral care"
+                    class="hero-photo"
+                >
+
+                <div class="hero-float-badge hero-float-eco">
+                    <span class="float-icon" aria-hidden="true">🌱</span>
+                    <div class="float-text">
+                        <strong>95/100</strong>
+                        <span>Avg. Eco Rating</span>
+                    </div>
+                </div>
+
+                <div class="hero-float-badge hero-float-recycle">
+                    <span class="float-icon" aria-hidden="true">♻</span>
+                    <span class="float-text">100% Recyclable</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Headline and CTAs -->
+        <div class="hero-content animate-slide-up">
+            <span class="hero-tagline">• SMART • SUSTAINABLE • ECO-FRIENDLY</span>
+            <h1>Care Beyond <em>Clean.</em></h1>
+            <p class="hero-subtitle">Smart, sustainable, and eco-friendly oral care products for healthier smiles and a greener future — without the trade-offs.</p>
+            <div class="hero-buttons">
+                <a href="{{ url_for('main.products') }}" class="btn btn-primary btn-hero">Shop Now →</a>
+                <a href="{{ url_for('main.about') }}" class="btn btn-hero-outline">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Products -->
+<section class="section featured-section" id="products">
+    <div class="container">
+        <div class="section-header">
+            <h2>Featured Products</h2>
+            <p>Discover our best-selling sustainable toothpaste range</p>
+        </div>
+        <div class="product-grid">
+            {% for product in featured_products %}
+            {% include 'partials/product_card.html' %}
+            {% endfor %}
+        </div>
+        <div class="section-cta">
+            <a href="{{ url_for('main.products') }}" class="btn btn-outline">View All Products</a>
+        </div>
+    </div>
+</section>
+
+<!-- About Us - Alternating Sections -->
+<section class="section about-preview" id="about">
+    <div class="container">
+        <div class="section-header">
+            <h2>Why Choose Us</h2>
+            <p>Committed to your smile and our planet</p>
+        </div>
+
+        <div class="about-alternate">
+            <div class="about-row">
+                <div class="about-image">
+                    <img src="{{ url_for('static', filename='images/eco-friendly.svg') }}" alt="Eco Friendly">
+                </div>
+                <div class="about-text">
+                    <h3>Eco Friendly</h3>
+                    <p>Our products use biodegradable packaging and natural ingredients sourced responsibly. Every tube is designed to minimize environmental impact while maximizing oral health benefits.</p>
+                </div>
+            </div>
+
+            <div class="about-row reverse">
+                <div class="about-image">
+                    <img src="{{ url_for('static', filename='images/fast-delivery.svg') }}" alt="Fast Delivery">
+                </div>
+                <div class="about-text">
+                    <h3>Fast Delivery</h3>
+                    <p>Get your favorite Godrej toothpaste delivered to your doorstep within 24-48 hours. Track your order in real-time through our smart marketplace platform.</p>
+                </div>
+            </div>
+
+            <div class="about-row">
+                <div class="about-image">
+                    <img src="{{ url_for('static', filename='images/affordable.svg') }}" alt="Affordable Price">
+                </div>
+                <div class="about-text">
+                    <h3>Affordable Price</h3>
+                    <p>Premium quality oral care shouldn't break the bank. We offer competitive pricing with exclusive deals for our smart marketplace members.</p>
+                </div>
+            </div>
+
+            <div class="about-row reverse">
+                <div class="about-image">
+                    <img src="{{ url_for('static', filename='images/sustainable.svg') }}" alt="100% Sustainable">
+                </div>
+                <div class="about-text">
+                    <h3>100% Sustainable &amp; Eco Friendly</h3>
+                    <p>From production to packaging, every step follows sustainable practices. Join us in creating a greener future, one smile at a time.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Customer Reviews -->
+<section class="section reviews-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Customer Reviews</h2>
+            <p>What our happy customers say about us</p>
+        </div>
+        <div class="reviews-grid">
+            {% for review in reviews %}
+            <div class="review-card">
+                <div class="review-header">
+                    <img src="{{ url_for('static', filename='images/' + review.image) }}" alt="{{ review.name }}" class="review-avatar">
+                    <div>
+                        <h4>{{ review.name }}</h4>
+                        <div class="stars">
+                            {% for i in range(review.rating) %}&#9733;{% endfor %}
+                            {% for i in range(5 - review.rating) %}&#9734;{% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <p class="review-text">"{{ review.review }}"</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Contact Preview -->
+<section class="section contact-preview" id="contact">
+    <div class="container">
+        <div class="section-header">
+            <h2>Contact Us</h2>
+            <p>We'd love to hear from you</p>
+        </div>
+        <div class="contact-cards">
+            <a href="mailto:care@godrejsmart.com" class="contact-card">
+                <span class="contact-icon">&#9993;</span>
+                <h4>Email</h4>
+                <p>care@godrejsmart.com</p>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-card">
+                <span class="contact-icon">in</span>
+                <h4>LinkedIn</h4>
+                <p>@GodrejSmartCare</p>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="contact-card">
+                <span class="contact-icon">&#9679;</span>
+                <h4>Instagram</h4>
+                <p>@godrej_eco_smile</p>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}About Us | Godrej Smart Marketplace{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <h1>About Us</h1>
+        <p>Care Beyond Clean — our mission for sustainable oral care</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="about-alternate">
+            <div class="about-row">
+                <div class="about-image">
+                    <img src="{{ url_for('static', filename='images/eco-friendly.svg') }}" alt="Eco Friendly">
+                </div>
+                <div class="about-text">
+                    <h3>Eco Friendly</h3>
+                    <p>At Godrej Smart Marketplace, sustainability isn't an afterthought — it's our foundation. We partner with eco-conscious manufacturers to bring you toothpaste products with biodegradable packaging, natural ingredients, and carbon-neutral shipping options.</p>
+                </div>
+            </div>
+
+            <div class="about-row reverse">
+                <div class="about-image">
+                    <img src="{{ url_for('static', filename='images/fast-delivery.svg') }}" alt="Fast Delivery">
+                </div>
+                <div class="about-text">
+                    <h3>Fast Delivery</h3>
+                    <p>Our smart logistics network ensures your orders reach you within 24-48 hours across major cities. Real-time tracking, secure packaging, and contactless delivery make shopping with us effortless and reliable.</p>
+                </div>
+            </div>
+
+            <div class="about-row">
+                <div class="about-image">
+                    <img src="{{ url_for('static', filename='images/affordable.svg') }}" alt="Affordable Price">
+                </div>
+                <div class="about-text">
+                    <h3>Affordable Price</h3>
+                    <p>We believe premium oral care should be accessible to everyone. Through direct partnerships and smart inventory management, we offer competitive prices without compromising on quality or sustainability.</p>
+                </div>
+            </div>
+
+            <div class="about-row reverse">
+                <div class="about-image">
+                    <img src="{{ url_for('static', filename='images/sustainable.svg') }}" alt="100% Sustainable">
+                </div>
+                <div class="about-text">
+                    <h3>100% Sustainable &amp; Eco Friendly</h3>
+                    <p>Every product in our marketplace carries an eco-rating so you can make informed choices. From recyclable tubes to plant-based formulas, we're committed to a greener future — one smile at a time.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

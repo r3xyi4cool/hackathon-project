@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Products | Godrej Smart Marketplace{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <h1>Our Products</h1>
+        <p>Explore our complete range of smart, sustainable oral care</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="product-grid">
+            {% for product in products %}
+            {% include 'partials/product_card.html' %}
+            {% else %}
+            <p class="empty-state">No products available at the moment.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
