@@ -47,7 +47,7 @@ godrej-marketplace/
 1. **Navigate to the project folder:**
 
    ```bash
-   cd godrej-marketplace
+   cd hackathon-project
    ```
 
 2. **Create a virtual environment (recommended):**
