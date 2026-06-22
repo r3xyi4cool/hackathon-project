@@ -15,7 +15,7 @@
 ## Project Structure
 
 ```
-godrej-marketplace/
+hackathon-project/
 ├── app.py                 # Application entry point
 ├── config.py              # Configuration settings
 ├── extensions.py          # Flask extensions (db, login_manager)
